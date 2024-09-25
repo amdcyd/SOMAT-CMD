@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/Proses%20AMD/Documents/SOMAT.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SO Material AMD/CYD</title>
+    <!-- Link ke Bootstrap CSS -->
+    <link href="./SO Material AMD_CYD_files/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            width: 100%;
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+        }
+      
+      /* Warna background biru langit untuk seluruh halaman */
+body {
+    background-color: #87CEEB;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Gaya untuk judul */
+h2, h3 {
+    color: #4682B4;
+    text-align: center;
+}
+
+/* Gaya tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Gaya duotone untuk baris tabel */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna pertama */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Warna kedua */
+}
+
+/* Gaya untuk border dan teks dalam tabel */
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4682B4; /* Warna biru untuk header tabel */
+    color: white;
+}
+
+/* Gaya tombol */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">SO MATERIAL AMD/CYD</h2>
+      <h3 class="text-center">BARANG MASUK</h3>
+
+    <!-- Bagian untuk menampilkan dan menginput BATCH MASUK -->
+    <div class="row text-center">
+        <div class="col-4">
+            <h4>AMD</h4>
+            <label for="batchAMD">AMD Batch</label>
+            <input type="number" id="batchAMD" value="0" onchange="updateMasuk()">
+        </div>
+        <div class="col-4">
+            <h4>MM</h4>
+            <label for="batchMM">MM Batch</label>
+            <input type="number" id="batchMM" value="0" onchange="updateMasuk()">
+        </div>
+        <div class="col-4">
+            <h4>CYD</h4>
+            <label for="batchCYD">CYD Batch</label>
+            <input type="number" id="batchCYD" value="0" onchange="updateMasuk()">
+        </div>
+    </div>
+  
+   <!-- Bagian untuk menampilkan dan menginput BATCH PAKAI-->
+  <br><br>
+        <h3 class="text-center">PEMAKAIAN</h3>
+  
+    <div class="row text-center">
+        <div class="col-4">
+            <h4>AMD</h4>
+            <label for="batchAMD">AMD Batch</label>
+            <input type="number" id="PAKAIAMD" value="0" onchange="updateMasuk()">
+        </div>
+        <div class="col-4">
+            <h4>MM</h4>
+            <label for="batchMM">MM Batch</label>
+            <input type="number" id="PAKAIMM" value="0" onchange="updateMasuk()">
+        </div>
+        <div class="col-4">
+            <h4>CYD</h4>
+            <label for="batchCYD">CYD Batch</label>
+            <input type="number" id="PAKAICYD" value="0" onchange="updateMasuk()">
+        </div>
+    </div>
+
+    <!-- Tabel yang dapat di-scroll jika layar sempit -->
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>ITEM</th>
+                    <th>STOK</th>
+                    <th>MASUK</th>
+                    <th>PAKAI</th>
+                    <th>SISA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SMP</td>
+                    <td><input type="number" id="stok1" value="0"></td>
+                    <td><input type="number" id="masuk1" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai1" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa1" value="0" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>WMP</td>
+                    <td><input type="number" id="stok2" value="0"></td>
+                    <td><input type="number" id="masuk2" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai2" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa2" value="0" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>MPP</td>
+                    <td><input type="number" id="stok3" value="0"></td>
+                    <td><input type="number" id="masuk3" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai3" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa3" value="0" readonly=""></td>
+                </tr>
+              <tr>
+                    <td>Tambahan AMD</td>
+                    <td><input type="number" id="stok4" value="0"></td>
+                    <td><input type="number" id="masuk4" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai4" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa4" value="0" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>Tambahan MM</td>
+                    <td><input type="number" id="stok5" value="0"></td>
+                    <td><input type="number" id="masuk5" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai5" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa5" value="0" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>Tambahan CYD</td>
+                    <td><input type="number" id="stok6" value="0"></td>
+                    <td><input type="number" id="masuk6" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai6" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa6" value="0" readonly=""></td>
+                </tr>
+              <tr>
+                    <td>GULA</td>
+                    <td><input type="number" id="stok7" value="0"></td>
+                    <td><input type="number" id="masuk7" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai7" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa7" value="0" readonly=""></td>
+                </tr>
+              <tr>
+                    <td>Eceran AMD</td>
+                    <td><input type="number" id="stok8" value="0"></td>
+                    <td><input type="number" id="masuk8" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai8" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa8" value="0" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>Eceran MM</td>
+                    <td><input type="number" id="stok9" value="0"></td>
+                    <td><input type="number" id="masuk9" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai9" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa9" value="0" readonly=""></td>
+                </tr>
+                <tr>
+                    <td>Eceran CYD</td>
+                    <td><input type="number" id="stok10" value="0"></td>
+                    <td><input type="number" id="masuk10" value="0" readonly=""></td>
+                    <td><input type="number" id="pakai10" value="0" readonly=""></td>
+                    <td><input type="number" id="sisa10" value="0" readonly=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tombol Hitung -->
+    <div class="text-center">
+        <button class="btn btn-primary" onclick="hitung()">HITUNG</button>
+    </div>
+</div>
+
+<!-- Script untuk menghitung dan update kolom MASUK DAN PAKAI -->
+<script>
+    function updateMasuk() {
+        var batchAMD = parseInt(document.getElementById("batchAMD").value);
+        var batchMM = parseInt(document.getElementById("batchMM").value);
+        var batchCYD = parseInt(document.getElementById("batchCYD").value);
+      
+        var PAKAIAMD = parseInt(document.getElementById("PAKAIAMD").value);
+        var PAKAIMM = parseInt(document.getElementById("PAKAIMM").value);
+        var PAKAICYD = parseInt(document.getElementById("PAKAICYD").value);
+        
+        // Update nilai kolom "MASUK" untuk setiap item
+        document.getElementById("masuk1").value = (batchAMD * 5) + (batchMM * 3) + (batchCYD * 6) ;
+        document.getElementById("masuk2").value = (batchAMD * 3) + (batchMM * 2) + (batchCYD * 4);
+        document.getElementById("masuk3").value = (batchAMD * 0) + (batchMM * 0) + (batchCYD * 4);
+        document.getElementById("masuk4").value = (batchAMD * 1) + (batchMM * 0) + (batchCYD * 0);
+        document.getElementById("masuk5").value = (batchAMD * 0) + (batchMM * 1) + (batchCYD * 0);
+        document.getElementById("masuk6").value = (batchAMD * 0) + (batchMM * 0) + (batchCYD * 1);
+        document.getElementById("masuk7").value = (batchAMD * 18) + (batchMM * 13) + (batchCYD * 10);
+        document.getElementById("masuk8").value = (batchAMD * 1) + (batchMM * 0) + (batchCYD * 0);
+        document.getElementById("masuk9").value = (batchAMD * 0) + (batchMM * 1) + (batchCYD * 0);
+        document.getElementById("masuk10").value = (batchAMD * 0) + (batchMM * 0) + (batchCYD * 1);
+      
+
+           // Update nilai kolom "PAKAI" untuk setiap item
+        document.getElementById("pakai1").value = (PAKAIAMD * 5) + (PAKAIMM * 3) + (PAKAICYD * 6);
+        document.getElementById("pakai2").value = (PAKAIAMD * 3) + (PAKAIMM * 2) + (PAKAICYD * 4);
+        document.getElementById("pakai3").value = (PAKAIAMD * 0) + (PAKAIMM * 0) + (PAKAICYD * 4);
+        document.getElementById("pakai4").value = (PAKAIAMD * 1) + (PAKAIMM * 0) + (PAKAICYD * 0);
+        document.getElementById("pakai5").value = (PAKAIAMD * 0) + (PAKAIMM * 1) + (PAKAICYD * 0);
+        document.getElementById("pakai6").value = (PAKAIAMD * 0) + (PAKAIMM * 0) + (PAKAICYD * 1);
+        document.getElementById("pakai7").value = (PAKAIAMD * 18) + (PAKAIMM * 13) + (PAKAICYD * 10);
+        document.getElementById("pakai8").value = (PAKAIAMD * 1) + (PAKAIMM * 0) + (PAKAICYD * 0);
+        document.getElementById("pakai9").value = (PAKAIAMD * 0) + (PAKAIMM * 1) + (PAKAICYD * 0);
+        document.getElementById("pakai10").value = (PAKAIAMD * 0) + (PAKAIMM * 0) + (PAKAICYD * 1);
+      
+        // Lakukan update untuk kolom lain jika ada item tambahan
+    }
+
+    function hitung() {
+        var stok1 = parseInt(document.getElementById("stok1").value);
+        var masuk1 = parseInt(document.getElementById("masuk1").value);
+        var pakai1 = parseInt(document.getElementById("pakai1").value);
+        var sisa1 = stok1 + masuk1 - pakai1;
+        document.getElementById("sisa1").value = sisa1;
+
+        var stok2 = parseInt(document.getElementById("stok2").value);
+        var masuk2 = parseInt(document.getElementById("masuk2").value);
+        var pakai2 = parseInt(document.getElementById("pakai2").value);
+        var sisa2 = stok2 + masuk2 - pakai2;
+        document.getElementById("sisa2").value = sisa2;
+
+        var stok3 = parseInt(document.getElementById("stok3").value);
+        var masuk3 = parseInt(document.getElementById("masuk3").value);
+        var pakai3 = parseInt(document.getElementById("pakai3").value);
+        var sisa3 = stok3 + masuk3 - pakai3;
+        document.getElementById("sisa3").value = sisa3;
+
+        var stok4 = parseInt(document.getElementById("stok4").value);
+        var masuk4 = parseInt(document.getElementById("masuk4").value);
+        var pakai4 = parseInt(document.getElementById("pakai4").value);
+        var sisa4 = stok4 + masuk4 - pakai4;
+        document.getElementById("sisa4").value = sisa4;
+      
+        var stok5 = parseInt(document.getElementById("stok5").value);
+        var masuk5 = parseInt(document.getElementById("masuk5").value);
+        var pakai5 = parseInt(document.getElementById("pakai5").value);
+        var sisa5 = stok5 + masuk5 - pakai5;
+        document.getElementById("sisa5").value = sisa5;
+      
+        var stok6 = parseInt(document.getElementById("stok6").value);
+        var masuk6 = parseInt(document.getElementById("masuk6").value);
+        var pakai6 = parseInt(document.getElementById("pakai6").value);
+        var sisa6 = stok6 + masuk6 - pakai6;
+        document.getElementById("sisa6").value = sisa6;
+      
+        var stok7 = parseInt(document.getElementById("stok7").value);
+        var masuk7 = parseInt(document.getElementById("masuk7").value);
+        var pakai7 = parseInt(document.getElementById("pakai7").value);
+        var sisa7 = stok7 + masuk7 - pakai7;
+        document.getElementById("sisa7").value = sisa7;
+      
+        var stok8 = parseInt(document.getElementById("stok8").value);
+        var masuk8 = parseInt(document.getElementById("masuk8").value);
+        var pakai8 = parseInt(document.getElementById("pakai8").value);
+        var sisa8 = stok8 + masuk8 - pakai8;
+        document.getElementById("sisa8").value = sisa8;
+      
+        var stok9 = parseInt(document.getElementById("stok9").value);
+        var masuk9 = parseInt(document.getElementById("masuk9").value);
+        var pakai9 = parseInt(document.getElementById("pakai9").value);
+        var sisa9 = stok9 + masuk9 - pakai9;
+        document.getElementById("sisa9").value = sisa9;
+      
+        var stok10 = parseInt(document.getElementById("stok10").value);
+        var masuk10 = parseInt(document.getElementById("masuk10").value);
+        var pakai10 = parseInt(document.getElementById("pakai10").value);
+        var sisa10 = stok10 + masuk10 - pakai10;
+        document.getElementById("sisa10").value = sisa10;
+      
+        // Lakukan perhitungan untuk item lain jika ada
+    }
+</script>
+
+<!-- Link ke Bootstrap JS dan jQuery (untuk fitur Bootstrap yang memerlukan JS) -->
+<script src="./SO Material AMD_CYD_files/jquery-3.5.1.slim.min.js.download"></script>
+<script src="./SO Material AMD_CYD_files/bootstrap.bundle.min.js.download"></script>
+
+
+
+O</body></html>
